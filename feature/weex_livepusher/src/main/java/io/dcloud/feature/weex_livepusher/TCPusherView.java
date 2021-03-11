@@ -212,6 +212,10 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_720_1280;
                 /*超清模式下是否开启硬件加速，腾讯官方提供硬件加速*/
                 break;
+            case "1080P":
+                videoQulity = TXLiveConstants.VIDEO_QUALITY_ULTRA_DEFINITION;
+                videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_1080_1920;
+                break;
             default:
             case "RTC":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_REALTIEM_VIDEOCHAT;
