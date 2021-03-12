@@ -103,7 +103,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 FLAG_KEEP_SCREEN_ON);
         pusherView = new TXCloudVideoView(getContext());
         addView(pusherView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        PermissionUtil.requestSystemPermissions((Activity) mInstance.getContext(), new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA}, 20190419, new PermissionUtil.Request() {
+        PermissionUtil.requestSystemPermissions((Activity) mInstance.getContext(), new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA}, 2021, new PermissionUtil.Request() {
             @Override
             public void onGranted(String streamPerName) {
                 permissions.add(streamPerName);
@@ -208,13 +208,9 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960;
                 break;
             case "FHD":
-                videoQulity = TXLiveConstants.VIDEO_QUALITY_SUPER_DEFINITION;
-                videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_720_1280;
-                /*超清模式下是否开启硬件加速，腾讯官方提供硬件加速*/
-                break;
-            case "1080P":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_ULTRA_DEFINITION;
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_1080_1920;
+                /*超清模式下是否开启硬件加速，腾讯官方提供硬件加速*/
                 break;
             default:
             case "RTC":
@@ -341,7 +337,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
     }
 
     public void setSrc(String src) {
-        if (PdrUtil.isEmpty(mSrc) && !PdrUtil.isEmpty(src)) {
+        if (mSrc == null || (PdrUtil.isEmpty(mSrc) && !PdrUtil.isEmpty(src))) {
 //            changeSrc(src);
         } else if (!mSrc.equals(src)) {
 //            changeSrc(src);
