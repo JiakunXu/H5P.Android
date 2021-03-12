@@ -337,7 +337,11 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
     }
 
     public void setSrc(String src) {
-        if (mSrc == null || (PdrUtil.isEmpty(mSrc) && !PdrUtil.isEmpty(src))) {
+        if (PdrUtil.isEmpty(src)) {
+            return;
+        }
+
+        if (PdrUtil.isEmpty(mSrc) && !PdrUtil.isEmpty(src)) {
 //            changeSrc(src);
         } else if (!mSrc.equals(src)) {
 //            changeSrc(src);
