@@ -75,6 +75,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         this.cameraType = isFront;
         if (!isFront) mLivePushConfig.setTouchFocus(false);
         mLivePushConfig.setPauseFlag(TXLiveConstants.PAUSE_FLAG_PAUSE_VIDEO); // pause时关闭视频，不关闭音频，采用pause图片
+        mLivePushConfig.enableAEC(true);
 //        ThreadPool.self().addThreadTask(new Runnable() {
 //            @Override
 //            public void run() {
