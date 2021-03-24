@@ -525,23 +525,6 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         }
     }
 
-    public void setVideoQuality(String quality, JSCallback callback) {
-        int videoQulity = TXLiveConstants.VIDEO_QUALITY_ULTRA_DEFINITION;
-
-        if ("LINKMIC_MAIN".endsWith(quality)) {
-            videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER;
-        } else if ("LINKMIC_SUB".endsWith(quality)) {
-            videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER;
-        }
-
-        mLivePusher.setVideoQuality(videoQulity, false, false);
-
-        Map<String, Object> data = new HashMap<>();
-        data.put("type", "success");
-        if (callback != null)
-            callback.invoke(data);
-    }
-
 //    public void addEvent(String event) {
 //        events.add(event);
 //    }
