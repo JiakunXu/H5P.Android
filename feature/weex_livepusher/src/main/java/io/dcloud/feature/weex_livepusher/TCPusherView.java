@@ -222,7 +222,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         }
         mLivePusher.setVideoQuality(videoQulity, false, false);
         // mLivePushConfig.setVideoResolution(videoResolution);
-        // mLivePushConfig.setVideoFPS(30);
+        mLivePushConfig.setVideoFPS(30);
     }
 
     public void setOritation(String oritation) {
