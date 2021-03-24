@@ -236,6 +236,11 @@ public class PusherComponent extends WXComponent<TCPusherView> {
         getHostView().stopPreview(callback);
     }
 
+    @JSMethod
+    public void setVideoQuality(String quality, JSCallback callback) {
+        getHostView().setVideoQuality(quality, callback);
+    }
+
     @Override
     public void onActivityPause() {
         super.onActivityPause();
