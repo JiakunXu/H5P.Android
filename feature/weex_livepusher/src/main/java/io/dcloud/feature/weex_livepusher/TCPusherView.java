@@ -198,7 +198,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
     public void setMode(String mode) {
         switch (mode) {
             case "SD":
-                videoQulity = TXLiveConstants.VIDEO_QUALITY_STANDARD_DEFINITION;
+                videoQulity = TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION;
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_360_640;
                 //标清默认开启了码率自适应，需要关闭码率自适应
                 mLivePushConfig.setAutoAdjustBitrate(false);
@@ -206,13 +206,19 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 mLivePusher.setConfig(mLivePushConfig);
                 break;
             case "HD":
-                videoQulity = TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION;
+                videoQulity = TXLiveConstants.VIDEO_QUALITY_SUPER_DEFINITION;
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960;
                 break;
             case "FHD":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_ULTRA_DEFINITION;
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_1080_1920;
                 /*超清模式下是否开启硬件加速，腾讯官方提供硬件加速*/
+                break;
+            case "LMM":
+                videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER;
+                break;
+            case "LMS":
+                videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER;
                 break;
             default:
             case "RTC":
