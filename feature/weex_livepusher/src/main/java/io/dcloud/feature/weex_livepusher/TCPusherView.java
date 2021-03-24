@@ -103,6 +103,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         ((Activity) getContext()).getWindow().addFlags(WindowManager.LayoutParams.
                 FLAG_KEEP_SCREEN_ON);
         pusherView = new TXCloudVideoView(getContext());
+        pusherView.setKeepScreenOn(true);
         addView(pusherView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         PermissionUtil.requestSystemPermissions((Activity) mInstance.getContext(), new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA}, 2021, new PermissionUtil.Request() {
             @Override
@@ -363,6 +364,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         // 清除常亮操作
         ((Activity) getContext()).getWindow().clearFlags(WindowManager.LayoutParams.
                 FLAG_KEEP_SCREEN_ON);
+        pusherView.setKeepScreenOn(false);
         mLivePusher.stopBGM();
         mLivePusher.stopCameraPreview(false);
         mLivePusher.stopScreenCapture();
