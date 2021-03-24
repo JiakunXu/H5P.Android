@@ -361,10 +361,6 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
     }
 
     public void stopPusher(JSCallback callback) {
-        // 清除常亮操作
-        ((Activity) getContext()).getWindow().clearFlags(WindowManager.LayoutParams.
-                FLAG_KEEP_SCREEN_ON);
-        pusherView.setKeepScreenOn(false);
         mLivePusher.stopBGM();
         mLivePusher.stopCameraPreview(false);
         mLivePusher.stopScreenCapture();
@@ -376,6 +372,10 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
     }
 
     public void destory(){
+        // 清除常亮操作
+        ((Activity) getContext()).getWindow().clearFlags(WindowManager.LayoutParams.
+                FLAG_KEEP_SCREEN_ON);
+        pusherView.setKeepScreenOn(false);
         pusherView.stop(true);
         mLivePusher.setPushListener(null);
         mLivePusher.setBGMNofify(null);
