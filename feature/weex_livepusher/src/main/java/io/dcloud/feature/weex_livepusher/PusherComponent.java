@@ -163,6 +163,11 @@ public class PusherComponent extends WXComponent<TCPusherView> {
         getHostView().setBGMute(backgroundMute);
     }
 
+    @WXComponentProp(name = "enableAec")
+    public void setEnableAec(boolean isEnable) {
+        getHostView().enableAec(isEnable);
+    }
+
     @JSMethod
     public void start(JSCallback callback) {
         getHostView().start(callback);
