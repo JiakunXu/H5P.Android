@@ -226,15 +226,16 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 videoResolution = TXLiveConstants.VIDEO_RESOLUTION_TYPE_360_640;
                 break;
         }
-        mLivePusher.setVideoQuality(videoQulity, false, false);
-        // mLivePushConfig.setVideoResolution(videoResolution);
-        mLivePushConfig.setVideoFPS(30);
 
         if ("LMM".equals(mode)) {
             mLivePusher.setVideoQuality(videoQulity, true, false);
 
             mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960);
             mLivePusher.setConfig(mLivePushConfig);
+        } else {
+            mLivePusher.setVideoQuality(videoQulity, false, false);
+            // mLivePushConfig.setVideoResolution(videoResolution);
+            mLivePushConfig.setVideoFPS(30);
         }
     }
 
