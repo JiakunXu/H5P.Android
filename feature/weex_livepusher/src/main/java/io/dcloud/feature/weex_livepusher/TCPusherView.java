@@ -217,6 +217,7 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
             case "LMM":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER;
                 mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960);
+                mLivePusher.setConfig(mLivePushConfig);
                 break;
             case "LMS":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER;
