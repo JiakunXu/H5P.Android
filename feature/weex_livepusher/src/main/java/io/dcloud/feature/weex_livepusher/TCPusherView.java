@@ -216,8 +216,6 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
                 break;
             case "LMM":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER;
-                mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960);
-                mLivePusher.setConfig(mLivePushConfig);
                 break;
             case "LMS":
                 videoQulity = TXLiveConstants.VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER;
@@ -231,6 +229,13 @@ public class TCPusherView extends LinearLayout implements ITXLivePushListener, T
         mLivePusher.setVideoQuality(videoQulity, false, false);
         // mLivePushConfig.setVideoResolution(videoResolution);
         mLivePushConfig.setVideoFPS(30);
+
+        if ("LMM".equals(mode)) {
+            mLivePusher.setVideoQuality(videoQulity, true, false);
+
+            mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_540_960);
+            mLivePusher.setConfig(mLivePushConfig);
+        }
     }
 
     public void setOritation(String oritation) {
